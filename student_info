@@ -1,0 +1,44 @@
+import statistics
+
+
+class Student:
+    def __init__(self, name, rollno, marks):
+        self.name = name
+        self.rollno = rollno
+        self.marks = marks
+
+    def calculate_marks(self):
+        total_marks = sum(self.marks)
+        average_marks = statistics.mean(self.marks)
+        return total_marks, average_marks
+
+
+try:
+    name = input("Enter your name: ")
+
+    rollno = int(input("Enter your rollno: "))
+    if rollno <= 0:
+        raise ValueError("Roll number must be a positive integer.")
+
+    marks = []
+    num_of_subjects = int(input("Enter the number of subjects: "))
+    if num_of_subjects <= 0:
+        raise ValueError("Number of subjects must be a positive integer.")
+
+    for i in range(num_of_subjects):
+        mark = int(input(f"Enter mark for subject {i + 1}: "))
+        if mark < 0 or mark > 100:  # Assuming marks range from 0 to 100
+            raise ValueError("Marks must be between 0 and 100.")
+        marks.append(mark)
+
+    student_details = Student(name, rollno, marks)
+    total_marks, average_marks = student_details.calculate_marks()
+    print("Name: ", student_details.name)
+    print("Roll No: ", student_details.rollno)
+    print("Total marks secured: ", total_marks)
+    print("Average marks secured: ", average_marks)
+
+except ValueError as ve:
+    print("Error:", ve)
+except Exception as e:
+    print("An unexpected error occurred:", e)
