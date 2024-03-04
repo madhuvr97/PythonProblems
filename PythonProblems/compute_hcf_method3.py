@@ -1,7 +1,7 @@
 def compute_hcf(x,y):
-    while y == 0:
+    while y:
         x, y = y, x % y
-        return x
+    return x
 
 def get_positive_integer(prompt):
     try:
