@@ -33,7 +33,8 @@ def count_vowels(input_string):
 if __name__ == "__main__":
     input_string = input("Enter a string: ")
     vowels_count = count_vowels(input_string)
-    if vowels_count:
-        print(f"Number of vowels in the string: {vowels_count}")
-    else:
+    if vowels_count is None:
         print("You haven't entered any alphabetic characters...")
+    else:
+        print(f"Number of vowels in the string: {vowels_count}")
+
