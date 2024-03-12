@@ -30,11 +30,14 @@ def main():
     input_files = get_input_files()
     if input_files:
         output_file = input("Enter the file path for the merged PDF file: ")
-        if os.path.isfile(output_file):
+        output_dir = os.path.dirname(output_file)
+        try:
+            if not os.path.exists(output_dir):
+                os.makedirs(output_dir)
             merge_pdfs(input_files, output_file)
             print("The PDFs have been merged successfully.")
-        else:
-            print(f"Error: '{output_file}' path is not valid.")
+        except FileNotFoundError as fe:
+            print("Invalid path: ", str(fe))
     else:
         print("No PDFs to merge.")
 
