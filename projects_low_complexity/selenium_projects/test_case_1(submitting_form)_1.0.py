@@ -23,7 +23,7 @@ INPUT_DATA = {
 try:
     # Initialize Microsoft Edge WebDriver, launch the URL and maximize the window
     driver = webdriver.Edge()
-    driver.get("https://rahulshettyacademy.com/angularpractice/")
+    driver.get(URL)
     driver.maximize_window()
 
     print("Title: ", driver.title)
