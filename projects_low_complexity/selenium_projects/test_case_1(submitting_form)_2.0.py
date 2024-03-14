@@ -9,7 +9,10 @@ Note: Make sure to install the necessary dependencies using pip:
 pip install selenium
 """
 import json
-import timeHer
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
 URL = "https://rahulshettyacademy.com/angularpractice/"
 
 # Load input data from JSON file
