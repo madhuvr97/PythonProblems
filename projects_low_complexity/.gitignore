@@ -1,3 +1,4 @@
 # Ignore the below files
 secrets.py
 input_data.json
+consolidated_data.json
