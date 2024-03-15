@@ -3,6 +3,7 @@ import time
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 URL = "https://rahulshettyacademy.com/angularpractice/"
 current_filename = os.path.basename(__file__)
@@ -21,6 +22,7 @@ for test_case in test_cases_data['test_cases']:
         password = input_data["password"]
         checkbox = input_data["checkbox"]
         text_update = input_data["text_update"]
+        gender = input_data["gender"]
         break
 else:
     print(f"Test case {current_filename[:-3]} not found in the JSON file.")
@@ -30,12 +32,6 @@ try:
     driver.get(URL)
     driver.maximize_window()
 
-    print("Title: ", driver.title)
-    print("current_url: ", driver.current_url)
-
-    # CSS Selector syntax: tagname[attribute = 'value']   or #id  or .classname
-    # XPATH syntax: //tagname[@attribute = 'value']
-
     # Fill out the form
     driver.find_element(By.CSS_SELECTOR, 'input[name = "name"]').send_keys(name)
     driver.find_element(By.NAME, 'email').send_keys(email)
@@ -43,6 +39,10 @@ try:
     if checkbox:
         driver.find_element(By.ID, 'exampleCheck1').click()
     driver.find_element(By.CSS_SELECTOR, '#inlineRadio1').click()
+
+    # Static dropdown
+    dropdown = Select(driver.find_element(By.ID, "exampleFormControlSelect1"))
+    dropdown.select_by_visible_text(gender)
 
     # Submit the form
     driver.find_element(By.XPATH, '//input[@type = "submit"]').click()
