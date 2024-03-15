@@ -1,17 +1,8 @@
-"""
-This script automates interactions with a webpage using Selenium WebDriver.
-It navigates to a webpage, fills out a form, interacts with various elements, and verifies success messages.
-
-Prerequisites:
-- Microsoft Edge browser must be installed.
-
-Note: Make sure to install the necessary dependencies using pip:
-pip install selenium
-"""
 import json
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 URL = "https://rahulshettyacademy.com/angularpractice/"
 
@@ -38,6 +29,10 @@ try:
     if INPUT_DATA['checkbox']:
         driver.find_element(By.ID, 'exampleCheck1').click()
     driver.find_element(By.CSS_SELECTOR, '#inlineRadio1').click()
+
+    # Static dropdown
+    dropdown = Select(driver.find_element(By.ID, "exampleFormControlSelect1"))
+    dropdown.select_by_visible_text(INPUT_DATA['gender'])
 
     # Submit the form
     driver.find_element(By.XPATH, '//input[@type = "submit"]').click()
