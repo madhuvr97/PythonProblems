@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-import time
 
 url = "https://rahulshettyacademy.com/AutomationPractice/"
 input_data = {
@@ -35,12 +34,10 @@ try:
     assert driver.find_element(By.ID, "displayed-text").is_displayed()
     driver.find_element(By.ID, "hide-textbox").click()
     assert not driver.find_element(By.ID, "displayed-text").is_displayed()
-    time.sleep(5)
 
     # alerts
     driver.find_element(By.CSS_SELECTOR, "#name").send_keys(input_data["name"])
     driver.find_element(By.ID, "alertbtn").click()
-    time.sleep(5)
     alert = driver.switch_to.alert
     assert input_data["name"] in alert.text
     alert.accept()
