@@ -9,7 +9,7 @@ chrome_options.add_argument("--start-maximized")
 chrome_options.add_argument("--ignore-certificate-errors")
 
 # Initialize web driver
-driver = webdriver.Chrome(options= chrome_options)
+driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
 
 try:
