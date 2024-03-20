@@ -8,8 +8,14 @@ input_data = {
     "radio_button": "radio2",
     "name": "madhu"
 }
+
+# headless mode
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("headless")
+chrome_options.add_argument("--ignore-certificate-errors")
+
 # Initialize web driver
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options= chrome_options)
 driver.maximize_window()
 
 try:
@@ -48,6 +54,9 @@ try:
     actions.move_to_element(driver.find_element(By.ID, "mousehover")).perform()
     actions.click(driver.find_element(By.LINK_TEXT, "Top")).perform()
 
+    # scrolling to the bottom of the webpage and taking screenshots
+    driver.execute_script("window.scrollBy(0,document.body.scrollHeight);")
+    driver.save_screenshot("screen.png")
 
 except Exception as e:
     print("An error occurred:", e)
