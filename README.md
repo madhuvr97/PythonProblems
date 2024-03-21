@@ -11,4 +11,4 @@ Organized structure for easy navigation and exploration of solutions.
 Regular updates and additions as I continue to solve more problems and improve my skills.
 
 **Path**
-All the programs are pushed to Master branch - https://github.com/madhuvr97/PythonProblems/tree/master/PythonProblems
+All the programs are pushed to Master branch - https://github.com/madhuvr97/PythonProblems/tree/master/python_project_portfolio
