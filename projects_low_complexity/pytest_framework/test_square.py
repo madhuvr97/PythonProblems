@@ -1,11 +1,11 @@
+import pytest
 from square import square
 
 
-# Write test cases using the fixture in conftest.py
+@pytest.mark.usefixtures("setup")
+class TestSquare:
+    def test_square_positive(self, setup):
+        assert square(2) == 4
 
-def test_square_positive(setup):
-    assert square(2) == 4
-
-
-def test_square_negative(setup):
-    assert square(-3) == 9
+    def test_square_negative(self, setup):
+        assert square(-3) == 9
