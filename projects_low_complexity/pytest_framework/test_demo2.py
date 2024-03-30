@@ -1,6 +1,7 @@
 '''
 pytest -m smoke -v -s   ==> Use this command to run the test cases marked as smoke
 pytest -k Credit -v -s  ==> Use this command to run the selected test cases meeting a certain criteria
+pytest --html=report.html  ==> Use this command to create a html report
 @pytest.mark.skip  ==> used to skip a test case
 '''
 import pytest
